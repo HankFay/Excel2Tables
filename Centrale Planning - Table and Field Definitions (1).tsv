@@ -1,0 +1,67 @@
+Note: All tables have a PK (guid) of c<table>_PK												
+*cursordef												
+cTable c(32)	Purpose M	cField c(32)	Values M	Comment M	cType C(1)	nLen I	nDec I	cVals C(254)	cDefault c(254)	cCaption c(64)	lAllowEmpty L	cTooltip C(254)
+dRequest	Logging of Requests											
+		tReceived	datetime()		T					Received		
+		cAction	Action in _body		C	32				Action		
+		cRemoteIP	_server.remote_host		C	15				Remote IP		
+		mBody	getmember("_server","body","No Body Supplied")		M					Body	T	
+		mCookies	_cookie array		M					Cookies	T	
+												
+d<action>	Generic			This table is optional for a given dAction								
+		<action-specific>										
+		cdTask_FK	PK of Task. Always present.		C	36						
+												
+dAction	Available Actions											
+		cAction	The Action of the initiating Request		C	32				Action		
+		cStatusFlag	Active|Paused|Inactive		C	10				Status		
+		nPriority	5 (lowest) to 1 (highest)		I			1|2|3|4|5	3	Priority		
+		cActionType	Transactional|Ephemeral	Ephemeral Actions do not get a Task	C	12				Type		
+		lUsesOwnTable	IOW, is there a d<action> table	Mainly for informational purposes, as the d<action>_process function will of course take this into account	L					Own Table	T	
+		nMaxWait	Max Wait for Heartbeat	Varies by task, at the least	I				1200			
+												
+dTask	Where are we in getting this done?											
+		cdAction_FK	PK of dAction record; allows renaming of actions.		C	36				Action		
+		cd<action>_FK	if tableexists("d" + <action>), create record, put PK here	d<action>_process.prg has the responsibilityof this action	C	36				Action Specific	T	
+		mMsg	msg from the initial Request	Fed to d<action>_process as parameter	M					Msg	T	
+		cStatus	Waiting|Processing|Completed|Errored		C	10			Waiting	Status		
+		tReceived			T				datetime()	Received		
+		tStarted	Set by server when picked up		T					Started	T	
+		tEnded			T					Ended	T	
+		cdErrorLog_FK	Error log PK		C	36				Error Info	T	
+		nMaxWait	Max wait for a heartbeat before caling for help	Inherits from dAction	I	4						
+		tLastHeartbeat	From the SPAWN'd function		T					Last Heartbeat	T	
+												
+dServiceServer	Server available for operations											
+		cIPAddress	mandatory		C	15				IP Addr		
+		cServerName	CN, e.g., mydataworks\mdwrnd		C	32				Server Name	T	
+		cStatus	Up|Paused|Down	Down only set by an optional observer service	C	10		Up|Paused|Down		Status		
+		tLastHeartbeat	Updated by Service function on each server on each run		T					Last Heartbeat	T	
+		nMaxOps	Maximum # of concurrent operations		I	3				Max Ops		
+												
+dWebServer	Web Service Server											
+		cIPAddress	mandatory		C	15				IP Addr		
+		cServerName	CN, e.g., 		C	32				Server	T	
+		cStatus	Up|Paused|Down	Down only set by an optional observer service	C	10		Up|Paused|Down		Status		
+		tLastHeartbeat	Updated by Web Service on each server on each run		T					Last Heartbeat	T	
+												
+dConfig	General configuration											
+		nPauseSeconds	Seconds to pause between task checks by Server Service						1	Pause Seconds		
+		nMaxWait	Seconds to wait before issuing alarm	When to get worried and let us know. Default for dTask.nMaxWait						Max Wait		
+		nRequestDays	Days of Request data to hold	-1 = keep all; 0 = current day only	I	4			10	Request Days Hold		
+												
+dErrorLog	Shit happens											
+		tTimeStamp			T					TimeStamp		
+		cErrorMsg	message()		C	128				Error		
+		nLineNo	lineno()		I	5				LineNo		
+		mCallStack	astacktrace()		M					CallStack		
+		mMemory	List Memor to 		M					Memory		
+		mServer	json_encode(_server)		M					_Server Vars		
+		mCookies	if len(_cookie) > 0/j_cookie array		M					_Cookies		
+		cLocation	WebService|ServerService|Spawn		C	15				Where Executed		
+												
+dService	Name and needed information											
+		cServiceName		Unique name	C	32				Service Name		
+		cDatabase		Name of the database that the spawned actions will use when operaring. Passed to the spawned program.	C	32				Database	T	
+		cTenant		If used, the database passed to the spawned action will be <database>_<tenant>, which is the Lianja practice for multi-tenant databases.	C	32				Tenant	T	
+		cApplication		For a service with just one call, there may be no need to have a separate app folder: just put the file in the Centrale app folder, with a prefix that ties it to that service. For others, it makes sense to have a separate application (where the routines can be tested separately. If left blank, the call will look for the file in the Centrale directory.	C	32				Application	T	
