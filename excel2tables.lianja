@@ -68,8 +68,8 @@
 <cssstyle></cssstyle>
 <runtimeconnstr></runtimeconnstr>
 <runtimedatabase></runtimedatabase>
-<apppublisher>Copy</apppublisher>
-<apppublisherpath></apppublisherpath>
+<apppublisher>Custom</apppublisher>
+<apppublisherpath>notepad.exe</apppublisherpath>
 <apppublisherarguments></apppublisherarguments>
 <apppublisherdirectory>C:\Lianja\cloudserver\tenants\public\</apppublisherdirectory>
 <apppublisherdatabase></apppublisherdatabase>
