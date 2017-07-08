@@ -1,6 +1,10 @@
 lParameters tcFile, tlAutoPK
 local lcExtension
 
+if !"psplibrary" $ set("path")
+	set path to addbs(curdir()) + "PspLibrary"
+endif
+
 lcExtension = lower(justext(tcFile))
 if lcExtension = "tsv"
 	lcSeparator = chr(9)
