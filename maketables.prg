@@ -19,28 +19,29 @@ if lnFHandle < 1
 	_errorquit("Unable to open file.")
 endif
 
-lcCursorDef = _getcursordef(lnFHandle)
+lcCursorName = "TableDefs"
+lcCursorDef = _getcursordef(lnFHandle,lcSeparator, lcCursorName)
 if empty(lcCursorDef)
 	_errorquit("Unable to find cursor definition.")
 endif
 
 ? lcCursorDef
-lcCursorName = "TableDefs"
-llOK = _createcursor(lcCursorDef,lcCursorName,tlAutoPK)
+
+llOK = _createcursor(lcCursorDef,lcCursorName)
 
 *** End of Main
 
 procedure _createcursor
-	lparameters tcCursorDef, tcCursorName, tlAutoPK
-	local lcTable = "", lcField = ""
+	lparameters tcCursorDef, tcCursorName
+	
 	
 	
 endproc
 
 
 procedure _getcursordef
-	lParameters tnFHandle
-	local lcLine, lcLookFor = "*cursordef"
+	lParameters tnFHandle, tcCursorSeparator
+	local lcLine, lcLookFor = "*cursordef", lcFieldDefs, lCursorDef
 	
 	lcLine = _freadstr(tnFHandle, 254)
 	do while left(lower(lcLine),len(lcLookFor)) # lcLookFor
@@ -52,8 +53,16 @@ procedure _getcursordef
 	endif
 	*** by Jove, the next line is it!
 	lcLine = _freadstr(tnFHandle, 254)
-return lcLine
-
+	
+	lcCursorDef = "create cursor <<tcCursorName>>" + " ("
+	lcLine = tcCursorSeparator + lcLine + tcCursorSeparator
+	lcFieldDefs = ""
+	for lnField = 1 to occurs(tcCursorSeparator,lcLine) - 1
+		lcCurField = alltrim(strextract(lcLine, tcCursorSeparator, tcCursorSeparator,lnField))
+		lcFieldDefs = lcFieldDefs + lcCurField + ","
+	endfor
+	lcFieldDefs = left(lcFieldDefs,len(lcFieldDefs) - 1) 
+	return lcCursorDef + lcFieldDefs + ")"
 endproc
 
 procedure _freadstr

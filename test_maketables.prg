@@ -1,0 +1,1 @@
+do maketables with "Centrale Planning - Table and Field Definitions (1).tsv", .T.

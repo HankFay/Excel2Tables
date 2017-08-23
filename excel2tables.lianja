@@ -90,7 +90,7 @@
 <showpagesmenu>true</showpagesmenu>
 <showpagecenter>false</showpagecenter>
 <hideheadericons>true</hideheadericons>
-<pagecount>1</pagecount>
+<pagecount>2</pagecount>
 <scriptinglanguage>Visual FoxPro</scriptinglanguage>
 <customlibrary></customlibrary>
 <htmleditor>Desktop</htmleditor>
@@ -149,6 +149,10 @@
     <pageid>pgMain</pageid>
     <caption>Make Tables</caption>
 </menubutton>
+<menubutton>
+    <pageid>page2</pageid>
+    <caption>page2</caption>
+</menubutton>
 <page>
     <id>pgMain</id>
     <title>Make Tables</title>
@@ -201,6 +205,147 @@
     <headervisible>true</headervisible>
     <headerheight>40</headerheight>
     <headercaption>Table Making Options</headercaption>
+    <refreshwhenactivated>false</refreshwhenactivated>
+    <headergradient>true</headergradient>
+    <headergradienttype>0</headergradienttype>
+    <leftsidebarvisible>false</leftsidebarvisible>
+    <leftsidebartreevisible>false</leftsidebartreevisible>
+    <leftsidebartreewidth>240</leftsidebartreewidth>
+    <leftsidebartreerowheight>0</leftsidebartreerowheight>
+    <leftsidebartreeshowchildindicators>false</leftsidebartreeshowchildindicators>
+    <leftsidebartreedoubleclick>true</leftsidebartreedoubleclick>
+    <leftsidebartreealternatingcolors>true</leftsidebartreealternatingcolors>
+    <leftsidebartreegridlines>false</leftsidebartreegridlines>
+    <navtreeactionbarvisible>false</navtreeactionbarvisible>
+    <leftsidebartreecaptionvisible>false</leftsidebartreecaptionvisible>
+    <navigationpanelposition>Left</navigationpanelposition>
+    <leftsidebartreeselectioncolumn>0</leftsidebartreeselectioncolumn>
+    <leftsidebartreecaption>Navigation Panel</leftsidebartreecaption>
+    <leftsidebartreefontsize>0</leftsidebartreefontsize>
+    <rightsidebarvisible>false</rightsidebarvisible>
+    <hideactionbaratruntime>false</hideactionbaratruntime>
+    <syncactionbar>true</syncactionbar>
+    <leftsidebarloginpanelvisible>true</leftsidebarloginpanelvisible>
+    <leftsidebarappsvisible>false</leftsidebarappsvisible>
+    <leftsidebarwidth>240</leftsidebarwidth>
+    <rightsidebarwidth>160</rightsidebarwidth>
+    <leftsidebarappsheadervisible>true</leftsidebarappsheadervisible>
+    <leftsidebaritemsvisible>true</leftsidebaritemsvisible>
+    <leftsidebarmenuvisible>true</leftsidebarmenuvisible>
+    <leftsidebarfavoriteitems>0</leftsidebarfavoriteitems>
+    <leftsidebarrecentlyvieweditems>10</leftsidebarrecentlyvieweditems>
+    <leftsidebarrecentlymodifieditems>10</leftsidebarrecentlymodifieditems>
+    <leftsidebarwatcheditems>0</leftsidebarwatcheditems>
+    <leftsidebarrefreshinterval>0</leftsidebarrefreshinterval>
+    <rightsidebarcustomgadgetvisible>false</rightsidebarcustomgadgetvisible>
+    <rightsidebarcustomgadgetexpanded>false</rightsidebarcustomgadgetexpanded>
+    <rightsidebarcustomgadgetcaption>Untitled</rightsidebarcustomgadgetcaption>
+    <rightsidebarcustomgadgetheight>200</rightsidebarcustomgadgetheight>
+    <rightsidebarcustomgadgetrefreshinterval>0</rightsidebarcustomgadgetrefreshinterval>
+    <rightsidebarcustomgadgetstretch>false</rightsidebarcustomgadgetstretch>
+    <rightsidebarcontentinterval1>0</rightsidebarcontentinterval1>
+    <rightsidebarcontentinterval2>0</rightsidebarcontentinterval2>
+    <rightsidebarcontentinterval3>0</rightsidebarcontentinterval3>
+    <rightsidebarcontentinterval4>0</rightsidebarcontentinterval4>
+    <rightsidebarcontentvisible1>true</rightsidebarcontentvisible1>
+    <rightsidebarcontentvisible2>true</rightsidebarcontentvisible2>
+    <rightsidebarcontentvisible3>true</rightsidebarcontentvisible3>
+    <rightsidebarcontentvisible4>true</rightsidebarcontentvisible4>
+    <rightsidebarcontentexpanded1>true</rightsidebarcontentexpanded1>
+    <rightsidebarcontentexpanded2>true</rightsidebarcontentexpanded2>
+    <rightsidebarcontentexpanded3>true</rightsidebarcontentexpanded3>
+    <rightsidebarcontentexpanded4>true</rightsidebarcontentexpanded4>
+    <rightsidebarcontentheight1>140</rightsidebarcontentheight1>
+    <rightsidebarcontentheight2>140</rightsidebarcontentheight2>
+    <rightsidebarcontentheight3>140</rightsidebarcontentheight3>
+    <rightsidebarcontentheight4>140</rightsidebarcontentheight4>
+    <transparency>0</transparency>
+    <accordionatruntime>false</accordionatruntime>
+    <useaccordiononlowres>false</useaccordiononlowres>
+    <useaccordiononlowresvalue>1024</useaccordiononlowresvalue>
+    <accordionstackatruntime>false</accordionstackatruntime>
+    <collapseleftsidebar>false</collapseleftsidebar>
+    <collapserightsidebar>false</collapserightsidebar>
+    <hidefrommenuatruntime>false</hidefrommenuatruntime>
+    <hideslider>false</hideslider>
+    <menuicon>:/images/forms</menuicon>
+    <scriptinglanguage>Inherit</scriptinglanguage>
+    <footervisible>false</footervisible>
+    <footerheight>40</footerheight>
+    <footercustomgadgetrefreshinterval>0</footercustomgadgetrefreshinterval>
+    <footergradient>false</footergradient>
+    <footergradienttype>1</footergradienttype>
+    <footerbackcolor>#f9f9f9ff</footerbackcolor>
+    <footerforecolor>#000000ff</footerforecolor>
+    <footerfromcolor>#2b2b2bff</footerfromcolor>
+    <footertocolor>#212121ff</footertocolor>
+    <swipenavigation>false</swipenavigation>
+    <gesturesenabled>false</gesturesenabled>
+    <pagetransition>None</pagetransition>
+    <desktopui>true</desktopui>
+    <webui>true</webui>
+    <tabletui>true</tabletui>
+    <mobileui>true</mobileui>
+    <applyrulesonchange>false</applyrulesonchange>
+    <tilecategory>Select a Page</tilecategory>
+    <tilesize>1x1</tilesize>
+    <tileorder>1</tileorder>
+    <tilebackcolor>#1c1c1c</tilebackcolor>
+    <tileforecolor>#ffffff</tileforecolor>
+    <loginpage>false</loginpage>
+</page>
+<page>
+    <id>page2</id>
+    <title>page2</title>
+    <backcolor>#ffffffff</backcolor>
+    <forecolor>#000000ff</forecolor>
+    <deferredload>false</deferredload>
+    <pagegradient>false</pagegradient>
+    <pagegradienttype>0</pagegradienttype>
+    <pagefromcolor>#fafafaff</pagefromcolor>
+    <pagetocolor>#c0c0c0ff</pagetocolor>
+    <searchboxminchars>1</searchboxminchars>
+    <headerbackcolor>#212121ff</headerbackcolor>
+    <headerforecolor>#ffffffff</headerforecolor>
+    <navigationpanelcollapseonload>false</navigationpanelcollapseonload>
+    <navigationpanelcollapsable>false</navigationpanelcollapsable>
+    <headerfromcolor>#c8c8c8ff</headerfromcolor>
+    <headertocolor>#000000ff</headertocolor>
+    <marginsize>0</marginsize>
+    <hidecustomsearchicon>true</hidecustomsearchicon>
+    <hidefullscreenicon>true</hidefullscreenicon>
+    <hidenotificationicon>true</hidenotificationicon>
+    <hideshareicon>true</hideshareicon>
+    <hidehomeicon>false</hidehomeicon>
+    <hidehamburgermenuicon>false</hidehamburgermenuicon>
+    <showoptionsbutton>false</showoptionsbutton>
+    <headerbottomborder>true</headerbottomborder>
+    <fullpageedit>false</fullpageedit>
+    <headerborderbottomcolor>#ffa500ff</headerborderbottomcolor>
+    <leftsidebartreecaptionheight>26</leftsidebartreecaptionheight>
+    <leftsidebarbackcolor>#f9f9f9ff</leftsidebarbackcolor>
+    <leftsidebarforecolor>#000000ff</leftsidebarforecolor>
+    <leftsidebarbordercolor>#e0ecffff</leftsidebarbordercolor>
+    <rightsidebarbackcolor>#f9f9f9ff</rightsidebarbackcolor>
+    <rightsidebarforecolor>#000000ff</rightsidebarforecolor>
+    <rightsidebarbordercolor>#e0ecffff</rightsidebarbordercolor>
+    <alwayssaveinpagelibrary>false</alwayssaveinpagelibrary>
+    <querypage>false</querypage>
+    <querymode>false</querymode>
+    <leftsidebarimagevisible>false</leftsidebarimagevisible>
+    <hideheadericon>true</hideheadericon>
+    <hidesearchbox>true</hidesearchbox>
+    <timerinterval>0</timerinterval>
+    <stretch>false</stretch>
+    <stretchlastsectionatruntime>false</stretchlastsectionatruntime>
+    <scrollbarvisibleatruntime>true</scrollbarvisibleatruntime>
+    <autolayoutsections>false</autolayoutsections>
+    <stretchlastsectionminheight>0</stretchlastsectionminheight>
+    <stretchlastsectionmaxheight>0</stretchlastsectionmaxheight>
+    <usescrollbarminheight>0</usescrollbarminheight>
+    <headervisible>true</headervisible>
+    <headerheight>40</headerheight>
+    <headercaption>page2</headercaption>
     <refreshwhenactivated>false</refreshwhenactivated>
     <headergradient>true</headergradient>
     <headergradienttype>0</headergradienttype>
